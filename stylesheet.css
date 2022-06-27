@@ -1,0 +1,91 @@
+* {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  /*border: 1px solid black;*/
+}
+body {
+  background: #009900;
+  position: relative;
+}
+header {
+  height: 100px;
+  width: 500px;
+  margin-top: 25px;
+  margin-left: 25px;
+  font-family: 'VT323';
+  font-size: 80px;
+  color: white;
+}
+.intro {
+  position: relative;
+  font-family: 'VT323';
+  color: white;
+  font-size: 20px;
+  float: left;
+  height: 80px;
+  width: 300px;
+  margin-left: 35px;
+}
+p {
+  font-family: 'VT323';
+  color: white;
+  font-size: 25px;
+}
+#game_container {
+  position: relative;
+  height: 350px;
+  width: 350px;
+  margin: auto;
+  margin-bottom: 80px;
+}
+img {
+  max-height: 100%;
+  max-width: 100%;
+}
+.cards {
+  position: relative;
+  margin: auto;
+}
+#player {
+  display: flex;
+  position: absolute;
+  margin: 20px;
+  height: 180px;
+  width: 124px;
+  float: left;
+  margin-left: 30px;
+  text-align: center;
+}
+#computer {
+  bottom: -40%;
+  display: flex;
+  position: absolute;
+  margin: 20px;
+  height: 180px;
+  width: 124px;
+  float: left;
+  margin-left: 30px;
+  text-align: center;
+}
+#action {
+  bottom: -60%;
+  position: absolute;
+  font-family: 'VT323';
+  color: white;
+  font-size: 30px;
+  width: 180px;
+  height: 40px;
+  margin-top: 280px;
+  margin-left: 35%;
+  text-align: center;
+  border: 3px solid white;
+}
+.score_container {
+  position: relative;
+  width: 300px;
+  bottom: 300px;
+  left: 30px;
+  border: 3px solid white;
+  padding: 8px;
+}

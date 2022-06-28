@@ -21,6 +21,8 @@ var war = {
   playerCard3: document.getElementById("playerCard3"),
   computerCard3: document.getElementById("computerCard3"),
 
+  attackCard: document.getElementById("attack_card"),
+
   // Building an array of all kinds of playing cards
   build: function() {
     for (i = 0; i < this.values.length; i++){
@@ -62,10 +64,38 @@ var war = {
     war.computerCard1.src="cards/" + war.computerHand[war.computerHand.length-1][0] + "_of_" + war.computerHand[war.computerHand.length-1][1] + ".png";
     war.computerCard2.src="cards/" + war.computerHand[war.computerHand.length-2][0] + "_of_" + war.computerHand[war.computerHand.length-2][1] + ".png";
     war.computerCard3.src="cards/" + war.computerHand[war.computerHand.length-3][0] + "_of_" + war.computerHand[war.computerHand.length-3][1] + ".png";
-
     war.computerScore.innerHTML = war.computerDeck.length;
     war.playerScore.innerHTML = war.playerDeck.length;
-    war.compare();
+
+    war.die();
+  },
+
+  // Auxiliary function
+  randomInteger: function(min, max) {
+    let rand = min + Math.random() * (max + 1 - min);
+    return Math.floor(rand);
+  },
+
+  // We determine who will walk on this move
+  die: function() {
+    var ri = this.randomInteger(1,10);
+    if(this.randomInteger(1,10) > 5) {
+        war.humanAttack();
+    } else {
+        war.computerAttack();
+    }
+  },
+
+  // Player's move
+  humanAttack: function() {
+    var attCard = war.playerDeck.shift();
+    war.attackCard.src="cards/" + attCard[0] + "_of_" + attCard[1] + ".png";
+    var rang = attCard[0];
+    for (var i = 1; i < 4; i++) {
+      if(war.computerHand[i][0] < rang) {
+        console.log(war.computerHand[i][0], rang)
+      }
+    }
   },
 
   // Fill the players' hands with randomly shuffled cards

@@ -50,7 +50,6 @@ img {
 #player {
   display: flex;
   position: absolute;
-  margin: 20px;
   height: 180px;
   width: 124px;
   float: left;
@@ -61,7 +60,6 @@ img {
   bottom: -40%;
   display: flex;
   position: absolute;
-  margin: 20px;
   height: 180px;
   width: 124px;
   float: left;
@@ -88,4 +86,14 @@ img {
   left: 30px;
   border: 3px solid white;
   padding: 8px;
+}
+
+.attack_card {
+  position: absolute;
+  margin: -45%;
+  height: 180px;
+  width: 124px;
+  float: left;
+  margin-left: 400%;
+  text-align: center;
 }

@@ -25,8 +25,8 @@ let war = {
 
   // Building an array of all kinds of playing cards
   build: function() {
-    for (i = 0; i < this.values.length; i++){
-      for (j = 0; j < this.suits.length; j++) {
+    for (let i = 0; i < this.values.length; i++){
+      for (let j = 0; j < this.suits.length; j++) {
         this.cards.push([this.values[i], this.suits[j]]);
       }
     }
@@ -93,7 +93,7 @@ let war = {
     let attCard = war.playerDeck.shift();
     war.attackCard.src="cards/" + attCard[0] + "_of_" + attCard[1] + ".png";
     let rang = attCard[0];
-    for (var i = 2; i >= 0; i--) {
+    for (let i = 2; i >= 0; i--) {
       if(war.computerHand[i][0] < rang) {
         console.log(war.computerHand[i][0], rang)
         if(i===2) {

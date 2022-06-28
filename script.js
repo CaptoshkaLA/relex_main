@@ -96,12 +96,12 @@ let war = {
     for (var i = 2; i >= 0; i--) {
       if(war.computerHand[i][0] < rang) {
         console.log(war.computerHand[i][0], rang)
-        if(i==2) {
+        if(i===2) {
           war.computerCard1.addEventListener("click", function() {
             war.playerDeck.push(war.computerCard1);
             alert("First card is added to the deck");
             }, {once: true});
-        } else if(i==1) {
+        } else if(i===1) {
           war.computerCard2.addEventListener("click", function() {
             war.playerDeck.push(war.computerCard2);
             alert("Second card is added to the deck");
@@ -113,6 +113,7 @@ let war = {
             }, {once: true});
         }
       }
+
     }
   },
 

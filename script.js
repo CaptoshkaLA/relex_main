@@ -78,15 +78,18 @@ var war = {
   // We determine who will walk on this move
   die: function() {
     var ri = this.randomInteger(1,10);
-    if(this.randomInteger(1,10) > 5) {
-        war.humanAttack();
-    } else {
-        war.computerAttack();
-    }
+    war.humanAttack();
+    // if(this.randomInteger(1,10) > 5) {
+    //     war.humanAttack();
+    // } else {
+    //   alert("Now its computer time!");
+    //     war.computerAttack();
+    // }
   },
 
   // Player's move
   humanAttack: function() {
+    alert("Now its your turn");
     var attCard = war.playerDeck.shift();
     war.attackCard.src="cards/" + attCard[0] + "_of_" + attCard[1] + ".png";
     var rang = attCard[0];
@@ -94,18 +97,23 @@ var war = {
       if(war.computerHand[i][0] < rang) {
         console.log(war.computerHand[i][0], rang)
         if(i==2) {
-          war.computerCard1.addEventListener("click", war.addCardToDeck);
+          war.computerCard1.addEventListener("click", function() {
+            war.playerDeck.push(war.computerCard1);
+            alert("First card is added to the deck");
+            }, {once: true});
         } else if(i==1) {
-          war.computerCard2.addEventListener("click", war.addCardToDeck);
+          war.computerCard2.addEventListener("click", function() {
+            war.playerDeck.push(war.computerCard2);
+            alert("Second card is added to the deck");
+            }, {once: true});
         } else {
-          war.computerCard3.addEventListener("click", war.addCardToDeck);
+          war.computerCard3.addEventListener("click", function() {
+            war.playerDeck.push(war.computerCard3);
+            alert("Third card is added to the deck");
+            }, {once: true});
         }
       }
     }
-  },
-
-  addCardToDeck: function() {
-    alert("Yes");
   },
 
   // Fill the players' hands with randomly shuffled cards

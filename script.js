@@ -1,5 +1,5 @@
 
-var war = {
+let war = {
   values: [2, 3, 4, 5, 6],
   suits: ["clubs", "diamonds", "hearts", "spades"],
   cards: [],
@@ -34,7 +34,7 @@ var war = {
 
   // Shuffle the array based on the Fisher — Yates Shuffle algorithm
   shuffle: function(cards) {
-    var m = this.cards.length, t, i;
+    let m = this.cards.length, t, i;
     while (m) {
       i = Math.floor(Math.random() * m--);
       t = this.cards[m];
@@ -77,7 +77,7 @@ var war = {
 
   // We determine who will walk on this move
   die: function() {
-    var ri = this.randomInteger(1,10);
+    let ri = this.randomInteger(1,10);
     war.humanAttack();
     // if(this.randomInteger(1,10) > 5) {
     //     war.humanAttack();
@@ -90,9 +90,9 @@ var war = {
   // Player's move
   humanAttack: function() {
     alert("Now its your turn");
-    var attCard = war.playerDeck.shift();
+    let attCard = war.playerDeck.shift();
     war.attackCard.src="cards/" + attCard[0] + "_of_" + attCard[1] + ".png";
-    var rang = attCard[0];
+    let rang = attCard[0];
     for (var i = 2; i >= 0; i--) {
       if(war.computerHand[i][0] < rang) {
         console.log(war.computerHand[i][0], rang)

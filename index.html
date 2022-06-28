@@ -7,32 +7,32 @@
   <title>War</title>
 </head>
 <body>
-  <header>WALL TO WALL!</header>
-  <p class="intro">The rules are simple. There are 20 cards in the deck, 3 of them on the table. Alternately take cards from the deck and destroy the opponent's cards with less attack. GL&HF!</p>
-  <div id="game_container">
-    <div class="cards" id="player">
-      <img id="playerCard1" src="cards/backside.png">
-      <img id="playerCard2" src="cards/backside.png">
-      <img id="playerCard3" src="cards/backside.png">
-      <p>Player</p>
-    </div>
-    <div class="cards" id="computer">
-      <img id="computerCard1" src="cards/backside.png">
-      <img id="computerCard2" src="cards/backside.png">
-      <img id="computerCard3" src="cards/backside.png">
-      <p>Computer</p>
-    </div>
-    <div id="action">FLIP!</div>
+<header>WALL TO WALL!</header>
+<p class="intro">The rules are simple. There are 20 cards in the deck, 3 of them on the table. Alternately take cards from the deck and destroy the opponent's cards with less attack. GL&HF!</p>
+<div id="game_container">
+  <div class="cards" id="player">
+    <img id="playerCard1" src="images/backside.png">
+    <img id="playerCard2" src="images/backside.png">
+    <img id="playerCard3" src="images/backside.png">
+    <p>Player</p>
   </div>
-  <div class="score_container">
-    <p>Score</p>
-    <p>Your cards: <span id="player_score">20</span></p>
-    <p>Computer's cards: <span id="computer_score">20</span></p>
-    <div class="attack_card">
-      <img id="attack_card" src="cards/backside.png">
-      <p>Attack Card</p>
-    </div>
+  <div class="cards" id="computer">
+    <img id="computerCard1" src="images/backside.png">
+    <img id="computerCard2" src="images/backside.png">
+    <img id="computerCard3" src="images/backside.png">
+    <p>Computer</p>
   </div>
-  <script type="text/javascript" src="script.js"></script>
+  <div id="action">FLIP!</div>
+</div>
+<div class="score_container">
+  <p>Score</p>
+  <p>Your cards: <span id="player_score">20</span></p>
+  <p>Computer's cards: <span id="computer_score">20</span></p>
+  <div class="attack_card">
+    <img id="attack_card" src="images/backside.png">
+    <p>Attack Card</p>
+  </div>
+</div>
+<script type="module" src="index.js"></script>
 </body>
 </html>

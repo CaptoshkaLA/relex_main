@@ -66,7 +66,6 @@ var war = {
     war.computerCard3.src="cards/" + war.computerHand[war.computerHand.length-3][0] + "_of_" + war.computerHand[war.computerHand.length-3][1] + ".png";
     war.computerScore.innerHTML = war.computerDeck.length;
     war.playerScore.innerHTML = war.playerDeck.length;
-
     war.die();
   },
 
@@ -91,11 +90,22 @@ var war = {
     var attCard = war.playerDeck.shift();
     war.attackCard.src="cards/" + attCard[0] + "_of_" + attCard[1] + ".png";
     var rang = attCard[0];
-    for (var i = 1; i < 4; i++) {
+    for (var i = 2; i >= 0; i--) {
       if(war.computerHand[i][0] < rang) {
         console.log(war.computerHand[i][0], rang)
+        if(i==2) {
+          war.computerCard1.addEventListener("click", war.addCardToDeck);
+        } else if(i==1) {
+          war.computerCard2.addEventListener("click", war.addCardToDeck);
+        } else {
+          war.computerCard3.addEventListener("click", war.addCardToDeck);
+        }
       }
     }
+  },
+
+  addCardToDeck: function() {
+    alert("Yes");
   },
 
   // Fill the players' hands with randomly shuffled cards

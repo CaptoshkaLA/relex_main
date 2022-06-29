@@ -82,5 +82,6 @@ export class Player {
             }
         }
         if(count === 3) game.computerRedCards++;
+        return game;
     }
 }

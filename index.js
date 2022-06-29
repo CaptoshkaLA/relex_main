@@ -8,28 +8,38 @@ function main() {
     let player = new Player;
     let ai = new AI;
     let k = 0;
+    let fl;
     game.gameStart();
     game.actionDiv.addEventListener("click", function() {
-      let fl;
       if(k === 0) {
         k++;
         fl = game.whoGoesFirst();
         game.tableInitialize();
         if(fl === 0) {
           let flag = 0;
-          player.attack(game, flag);
+          game = player.attack(game, flag);
           fl = 1;
         } else {
-          ai.attack(game);
+          game = ai.attack(game);
           fl = 0;
         }
       } else {
         while (true) {
-          if (fl === 1) {
+          alert(fl);
+          if (fl === 0) {
             let flag = 0;
-            player.attack(game, flag);
-          } else if (fl === 0) {
+            alert("It's your turn now ")
+            game.actionDiv.addEventListener("click", function() {
+              game = player.attack(game, flag);
+            }, {once: true});
+            fl = 1;
+          } else if (fl === 1) {
             ai.attack(game);
+            alert("It's computer turn now ")
+            game.actionDiv.addEventListener("click", function() {
+              game = ai.attack(game);
+            }, {once: true});
+            fl = 0;
           }
 
           if (game.defeat()) {

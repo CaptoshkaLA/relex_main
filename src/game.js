@@ -11,6 +11,9 @@ export class Game {
     playerWon = false;
     computerWon = false;
 
+    playerRedCards = 0;
+    computerRedCards = 0;
+
     actionDiv = document.getElementById("action");
     playerScore = document.getElementById("player_score");
     computerScore = document.getElementById("computer_score");
@@ -95,5 +98,8 @@ export class Game {
         this.computerCard3.src="images/" + this.computerHand[this.computerHand.length-3][0] + "_of_" + this.computerHand[this.computerHand.length-3][1] + ".png";
         this.computerScore.innerHTML = this.computerDeck.length;
         this.playerScore.innerHTML = this.playerDeck.length;
+    }
+
+    defeat(who) {
     }
 }

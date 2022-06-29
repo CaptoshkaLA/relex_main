@@ -35,12 +35,14 @@ export class Player {
         let attCard = game.playerDeck.shift();
         game.attackCard.src="images/" + attCard[0] + "_of_" + attCard[1] + ".png";
         let rang = attCard[0];
+        let count = 0;
         for (let i = 2; i >= 0; i--) {
             if(i===2) {
                 game.computerCard1.addEventListener("click", function() {
                     if(flag === 0) {
                         if(game.computerHand[i][0] < rang) {
                             game.playerDeck.push(game.computerCard1);
+                            count++;
                             alert("First card is added to the deck");
                         } else {
                             game.computerDeck.push(game.attackCard);
@@ -54,6 +56,7 @@ export class Player {
                     if(flag === 0) {
                         if(game.computerHand[i][0] < rang) {
                             game.playerDeck.push(game.computerCard2);
+                            count++;
                             alert("Second card is added to the deck");
                         } else {
                             game.computerDeck.push(game.attackCard);
@@ -67,6 +70,7 @@ export class Player {
                     if(flag === 0) {
                         if(game.computerHand[i][0] < rang) {
                             game.playerDeck.push(game.computerCard3);
+                            count++;
                             alert("Third card is added to the deck");
                         } else {
                             game.computerDeck.push(game.attackCard);
@@ -77,5 +81,6 @@ export class Player {
                 }, {once: true});
             }
         }
+        if(count === 3) game.computerRedCards++;
     }
 }

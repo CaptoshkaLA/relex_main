@@ -13,7 +13,10 @@ export class AI {
             game.playerDeck.push(game.attackCard);
             alert("Computers card is added to your deck");
         } else {
-            while(possibleCards.length != 0) {
+            if(possibleCards.length === 3) {
+                game.playerRedCards++;
+            }
+            while(possibleCards.length !== 0) {
                 let index = possibleCards.pop();
                 if(index === 2) {
                     game.computerDeck.push(game.computerCard1);

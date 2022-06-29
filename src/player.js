@@ -2,7 +2,7 @@
 export class Player {
 
     // Player's move
-    attack(game) {
+    /*attack(game) {
         let attCard = game.playerDeck.shift();
         game.attackCard.src="images/" + attCard[0] + "_of_" + attCard[1] + ".png";
         let rang = attCard[0];
@@ -25,9 +25,9 @@ export class Player {
                         alert("Third card is added to the deck");
                     }, {once: true});
                 }
-            }
+            } // add
         }
-    }
+    } */
 
 
     // Player's move

@@ -10,7 +10,8 @@ function main() {
     let fl = game.whoGoesFirst();
     game.tableInitialize();
     if(fl === 0) {
-      player.attack(game);
+      let flag = 0;
+      player.attack(game, flag);
     } else {
       //ai.attackAI();
     }

@@ -65,7 +65,7 @@ export class Player {
                         }
                     }
                 }, {once: true});
-            } else if( i===3){
+            } else if( i===0){
                 game.computerCard3.addEventListener("click", function() {
                     if(flag === 0) {
                         if(game.computerHand[i][0] < rang) {

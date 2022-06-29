@@ -32,12 +32,7 @@ function main() {
             ai.attack(game);
           }
 
-          if (checkLose(human)) {
-            console.log("You've lost. Try again.");
-            break;
-          }
-          else if (checkLose(computer)) {
-            console.log("Yow won! Congratulations!");
+          if (game.defeat()) {
             break;
           }
         }

@@ -100,6 +100,15 @@ export class Game {
         this.playerScore.innerHTML = this.playerDeck.length;
     }
 
-    defeat(who) {
+    defeat() {
+        if(this.playerRedCards === 3) {
+            alert("You've lost");
+            return 1;
+        }
+        if(this.computerRedCards === 3) {
+            alert("You beat the computer");
+            return 1;
+        }
+        return 0;
     }
 }

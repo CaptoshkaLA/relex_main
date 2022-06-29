@@ -8,6 +8,8 @@ export class Game {
     playerDeck = [];
     computerDeck = [];
 
+    turn = 0;
+
     playerWon = false;
     computerWon = false;
 
@@ -110,5 +112,13 @@ export class Game {
             return 1;
         }
         return 0;
+    }
+
+    setTurnOne() {
+        this.turn = 1;
+    }
+
+    setTurnZero() {
+        this.turn = 0;
     }
 }

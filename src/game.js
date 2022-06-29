@@ -1,3 +1,4 @@
+
 export class Game {
 
     values = [0, 1, 2, 3, 4];
@@ -9,6 +10,8 @@ export class Game {
     computerDeck = [];
 
     turn = 0;
+    firstTurn = 0;
+
 
     playerWon = false;
     computerWon = false;
@@ -121,4 +124,90 @@ export class Game {
     setTurnZero() {
         this.turn = 0;
     }
+
+    // playGame(player, ai, game) {
+    //     console.log(" firstTurn1 "+game.firstTurn);
+    //     if(game.firstTurn === 0) {
+    //         this.actionDiv.addEventListener("click", () => {
+    //             game.firstTurn = 1;
+    //             this.turn = this.whoGoesFirst();
+    //             console.log("firstTurn=0 || 0-player,1-bot " + this.turn);
+    //             this.tableInitialize();
+    //             if (game.turn === 0) {
+    //                 let flag = 0;
+    //                 player.attack(game, flag);
+    //                 this.turn = 1;
+    //             } else {
+    //                 ai.attack(game);
+    //                 this.turn = 0;
+    //             }
+    //             //}, {once: true});
+    //         });
+    //     } else {
+    //         console.log("firstTurn=1 || 0-player,1-bot " +game.turn);
+    //         if(this.turn === 0) {
+    //             //game.actionDiv.addEventListener("click", function() {
+    //             this.actionDiv.addEventListener("click", () => {
+    //                 //game.turn = 1;
+    //                 this.setTurnOne();
+    //                 let flag = 0;
+    //                 alert("Player turn");
+    //                 this.tableInitialize();
+    //                 player.attack(game, flag);
+    //             }, {once: true});
+    //         } else if (this.turn === 1) {
+    //             // game.actionDiv.addEventListener("click", function() {
+    //             this.actionDiv.addEventListener("click", () => {
+    //                 //game.turn = 0;
+    //                 this.setTurnZero();
+    //                 alert("Computer turn");
+    //                 this.tableInitialize();
+    //                 ai.attack(game);
+    //             }, {once: true});
+    //         }
+    //         if (this.defeat()) {
+    //             this.turn = -1;
+    //         }
+    //     }
+    //     console.log(" firstTurn2 "+game.firstTurn);
+    // }
+
+    playGame(player, ai, game) {
+        console.log(" firstTurn1 "+game.firstTurn);
+        this.actionDiv.addEventListener("click", () => {
+            if (game.firstTurn === 0) {
+                game.firstTurn = 1;
+                this.turn = this.whoGoesFirst();
+                console.log("firstTurn=0 || 0-player,1-bot " + this.turn);
+                this.tableInitialize();
+                if (game.turn === 0) {
+                    let flag = 0;
+                    player.attack(game, flag);
+                    this.turn = 1;
+                } else {
+                    ai.attack(game);
+                    this.turn = 0;
+                }
+            } else {
+                console.log("firstTurn=1 || 0-player,1-bot " + game.turn);
+                if (this.turn === 0) {
+                    this.setTurnOne();
+                    let flag = 0;
+                    alert("Player turn");
+                    this.tableInitialize();
+                    player.attack(game, flag);
+                } else if (this.turn === 1) {
+                    this.setTurnZero();
+                    alert("Computer turn");
+                    this.tableInitialize();
+                    ai.attack(game);
+                }
+            }
+            if (this.defeat()) {
+                this.turn = -1;
+            }
+            //}, {once: true});
+            });
+        console.log(" firstTurn2 "+game.firstTurn);
+        }
 }

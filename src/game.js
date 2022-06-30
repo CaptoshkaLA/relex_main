@@ -146,18 +146,20 @@ export class Game {
                     this.computerScore.innerHTML = this.computerDeck.length;
                     this.playerScore.innerHTML = this.playerDeck.length-1;
                     let flag = 0;
-                    player.attack(game, flag);
-                    this.playerDeck.unshift(this.playerHand.shift());
-                    this.playerDeck.unshift(this.playerHand.shift());
-                    this.playerDeck.unshift(this.playerHand.shift());
+                    if(player.attack(game, flag)===1) {
+                        game.playerDeck.unshift(game.playerHand.shift());
+                        game.playerDeck.unshift(game.playerHand.shift());
+                        game.playerDeck.unshift(game.playerHand.shift());
+                    }
                     this.turn = 1;
                 } else {
                     this.computerScore.innerHTML = this.computerDeck.length-1;
                     this.playerScore.innerHTML = this.playerDeck.length;
-                    ai.attack(game);
-                    this.computerDeck.unshift(this.computerHand.shift());
-                    this.computerDeck.unshift(this.computerHand.shift());
-                    this.computerDeck.unshift(this.computerHand.shift());
+                    if(ai.attack(game)===1) {
+                        game.computerDeck.unshift(game.computerHand.shift());
+                        game.computerDeck.unshift(game.computerHand.shift());
+                        game.computerDeck.unshift(game.computerHand.shift());
+                    }
                     this.turn = 0;
                 }
             } else if(game.turn !== -1) {
@@ -169,20 +171,22 @@ export class Game {
                     this.tableInitialize();
                     this.computerScore.innerHTML = this.computerDeck.length;
                     this.playerScore.innerHTML = this.playerDeck.length-1;
-                    player.attack(game, flag);
-                    this.playerDeck.unshift(this.playerHand.shift());
-                    this.playerDeck.unshift(this.playerHand.shift());
-                    this.playerDeck.unshift(this.playerHand.shift());
+                    if(player.attack(game, flag)===1) {
+                        game.playerDeck.unshift(game.playerHand.shift());
+                        game.playerDeck.unshift(game.playerHand.shift());
+                        game.playerDeck.unshift(game.playerHand.shift());
+                    }
                 } else if (this.turn === 1) {
                     this.setTurnZero();
                     alert("Computer turn");
                     this.tableInitialize();
                     this.computerScore.innerHTML = this.computerDeck.length-1;
                     this.playerScore.innerHTML = this.playerDeck.length;
-                    ai.attack(game);
-                    this.computerDeck.unshift(this.computerHand.shift());
-                    this.computerDeck.unshift(this.computerHand.shift());
-                    this.computerDeck.unshift(this.computerHand.shift());
+                    if(ai.attack(game)===1) {
+                        game.computerDeck.unshift(game.computerHand.shift());
+                        game.computerDeck.unshift(game.computerHand.shift());
+                        game.computerDeck.unshift(game.computerHand.shift());
+                    }
                 }
             }
             //}, {once: true});

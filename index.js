@@ -7,7 +7,7 @@ function main() {
     let game = new Game;
     let player = new Player;
     let ai = new AI;
-    alert("game started");
+    alert("Game started");
     game.gameStart();
     console.log(game.computerDeck);
     console.log(game.playerDeck);

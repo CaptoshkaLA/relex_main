@@ -9,14 +9,15 @@ export class Player {
         let rang = attCard[0];
         let count = 0;
         for (let i = 2; i >= 0; i--) {
+            console.log(game.computerHand[i][0])
             if(i===2) {
                 game.computerCard1.addEventListener("click", function() {
                     if(flag === 0) {
                         if(game.computerHand[i][0] < rang) {
                             game.playerDeck.push(game.computerCard1);
-                            game.computerHand.splice(2,1);
                             count++;
                             alert("First card is added to the deck");
+                            //game.computerHand.splice(2,1);
                         } else {
                             game.computerDeck.push(game.attackCard);
                             flag = 1;
@@ -31,9 +32,9 @@ export class Player {
                     if(flag === 0) {
                         if(game.computerHand[i][0] < rang) {
                             game.playerDeck.push(game.computerCard2);
-                            game.playerHand.splice(1,1);
                             count++;
                             alert("Second card is added to the deck");
+                            //game.playerHand.splice(1,1);
                         } else {
                             game.computerDeck.push(game.attackCard);
                             flag = 1;
@@ -48,9 +49,9 @@ export class Player {
                     if(flag === 0) {
                         if(game.computerHand[i][0] < rang) {
                             game.playerDeck.push(game.computerCard3);
-                            game.playerHand.splice(0,1);
                             count++;
                             alert("Third card is added to the deck");
+                            //game.playerHand.splice(0,1);
                         } else {
                             game.computerDeck.push(game.attackCard);
                             flag = 1;
@@ -61,14 +62,14 @@ export class Player {
                     }
                 }, {once: true});
             }
-            while(game.computerHand.length > 0) {
-                game.computerDeck.push(game.computerHand.shift());
-            }
+            // while(game.computerHand.length > 0) {
+            //     game.computerDeck.push(game.computerHand.shift());
+            // }
         }
         if(count === 3) {
             game.computerRedCards++;
             alert("The opponent was given a penalty point")
         }
-        return game;
+        return 1;
     }
 }

@@ -14,9 +14,9 @@ export class AI {
             alert("Computers card is added to your deck");
             game.computerScore.innerHTML = game.computerDeck.length;
             game.playerScore.innerHTML = game.playerDeck.length;
-            game.playerDeck.push(game.playerHand.shift());
-            game.playerDeck.push(game.playerHand.shift());
-            game.playerDeck.push(game.playerHand.shift());
+            // game.playerDeck.push(game.playerHand.shift());
+            // game.playerDeck.push(game.playerHand.shift());
+            // game.playerDeck.push(game.playerHand.shift());
         } else {
             if(possibleCards.length === 3) {
                 game.playerRedCards++;
@@ -29,25 +29,25 @@ export class AI {
                     alert("Computer beat your first card and took it for itself");
                     game.computerScore.innerHTML = game.computerDeck.length;
                     game.playerScore.innerHTML = game.playerDeck.length;
-                    game.playerHand.splice(2,1);
+                    // game.playerHand.splice(2,1);
                 } else if(index === 1) {
                     game.computerDeck.push(game.computerCard2);
                     alert("Computer beat your second card and took it for itself");
                     game.computerScore.innerHTML = game.computerDeck.length;
                     game.playerScore.innerHTML = game.playerDeck.length;
-                    game.playerHand.splice(1,1);
+                    // game.playerHand.splice(1,1);
                 } else {
                     game.computerDeck.push(game.computerCard3);
                     alert("Computer beat your third card and took it for itself");
                     game.computerScore.innerHTML = game.computerDeck.length;
                     game.playerScore.innerHTML = game.playerDeck.length;
-                    game.playerHand.splice(0,1);
+                    // game.playerHand.splice(0,1);
                 }
-                while(game.playerHand.length > 0) {
-                    game.playerDeck.push(game.playerHand.shift());
-                }
+                // while(game.playerHand.length > 0) {
+                //     game.playerDeck.push(game.playerHand.shift());
+                // }
             }
         }
-        return game;
+        return 1;
     }
 }

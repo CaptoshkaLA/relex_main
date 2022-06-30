@@ -2,6 +2,8 @@ export class AI {
     attack(game) {
         let attCard = game.computerDeck.shift();
         game.attackCard.src="images/" + attCard[0] + "_of_" + attCard[1] + ".png";
+        game.computerScore.innerHTML = game.computerDeck.length;
+        game.playerScore.innerHTML = game.playerDeck.length;
         let rang = attCard[0];
         let possibleCards = [];
         for (let i = 2; i >= 0; i--) {
@@ -14,9 +16,6 @@ export class AI {
             alert("Computers card is added to your deck");
             game.computerScore.innerHTML = game.computerDeck.length;
             game.playerScore.innerHTML = game.playerDeck.length;
-            // game.playerDeck.push(game.playerHand.shift());
-            // game.playerDeck.push(game.playerHand.shift());
-            // game.playerDeck.push(game.playerHand.shift());
         } else {
             if(possibleCards.length === 3) {
                 game.playerRedCards++;
@@ -48,6 +47,8 @@ export class AI {
                 // }
             }
         }
+
+
         return 1;
     }
 }

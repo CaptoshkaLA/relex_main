@@ -6,6 +6,8 @@ export class Player {
     attack(game, flag) {
         let attCard = game.playerDeck.shift();
         game.attackCard.src="images/" + attCard[0] + "_of_" + attCard[1] + ".png";
+        game.computerScore.innerHTML = game.computerDeck.length;
+        game.playerScore.innerHTML = game.playerDeck.length;
         let rang = attCard[0];
         let count = 0;
         for (let i = 2; i >= 0; i--) {

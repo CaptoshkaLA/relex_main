@@ -134,7 +134,10 @@ export class Game {
         this.playerDeck = this.shuffle(this.playerDeck);
         console.log(" firstTurn1 "+game.firstTurn);
         this.actionDiv.addEventListener("click", () => {
-            if (game.firstTurn === 0) {
+            if (this.defeat()) {
+                this.turn = -1;
+            }
+            if (game.firstTurn === 0 && game.turn !== -1) {
                 game.firstTurn = 1;
                 this.turn = this.whoGoesFirst();
                 console.log("firstTurn=0 || 0-player,1-bot " + this.turn);
@@ -144,14 +147,20 @@ export class Game {
                     this.playerScore.innerHTML = this.playerDeck.length-1;
                     let flag = 0;
                     player.attack(game, flag);
+                    this.playerDeck.unshift(this.playerHand.shift());
+                    this.playerDeck.unshift(this.playerHand.shift());
+                    this.playerDeck.unshift(this.playerHand.shift());
                     this.turn = 1;
                 } else {
                     this.computerScore.innerHTML = this.computerDeck.length-1;
                     this.playerScore.innerHTML = this.playerDeck.length;
                     ai.attack(game);
+                    this.computerDeck.unshift(this.computerHand.shift());
+                    this.computerDeck.unshift(this.computerHand.shift());
+                    this.computerDeck.unshift(this.computerHand.shift());
                     this.turn = 0;
                 }
-            } else {
+            } else if(game.turn !== -1) {
                 console.log("firstTurn=1 || 0-player,1-bot " + game.turn);
                 if (this.turn === 0) {
                     this.setTurnOne();
@@ -161,6 +170,9 @@ export class Game {
                     this.computerScore.innerHTML = this.computerDeck.length;
                     this.playerScore.innerHTML = this.playerDeck.length-1;
                     player.attack(game, flag);
+                    this.playerDeck.unshift(this.playerHand.shift());
+                    this.playerDeck.unshift(this.playerHand.shift());
+                    this.playerDeck.unshift(this.playerHand.shift());
                 } else if (this.turn === 1) {
                     this.setTurnZero();
                     alert("Computer turn");
@@ -168,10 +180,10 @@ export class Game {
                     this.computerScore.innerHTML = this.computerDeck.length-1;
                     this.playerScore.innerHTML = this.playerDeck.length;
                     ai.attack(game);
+                    this.computerDeck.unshift(this.computerHand.shift());
+                    this.computerDeck.unshift(this.computerHand.shift());
+                    this.computerDeck.unshift(this.computerHand.shift());
                 }
-            }
-            if (this.defeat()) {
-                this.turn = -1;
             }
             //}, {once: true});
         });

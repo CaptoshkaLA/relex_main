@@ -12,21 +12,30 @@ export class AI {
         if(possibleCards.length === 0) {
             game.playerDeck.push(game.attackCard);
             alert("Computers card is added to your deck");
+            game.computerScore.innerHTML = game.computerDeck.length;
+            game.playerScore.innerHTML = game.playerDeck.length;
         } else {
             if(possibleCards.length === 3) {
                 game.playerRedCards++;
+                alert("The player was given a penalty point");
             }
             while(possibleCards.length !== 0) {
                 let index = possibleCards.pop();
                 if(index === 2) {
                     game.computerDeck.push(game.computerCard1);
-                    alert("Computer beat your first card and took it for itself")
+                    alert("Computer beat your first card and took it for itself");
+                    game.computerScore.innerHTML = game.computerDeck.length;
+                    game.playerScore.innerHTML = game.playerDeck.length;
                 } else if(index === 1) {
                     game.computerDeck.push(game.computerCard2);
-                    alert("Computer beat your second card and took it for itself")
+                    alert("Computer beat your second card and took it for itself");
+                    game.computerScore.innerHTML = game.computerDeck.length;
+                    game.playerScore.innerHTML = game.playerDeck.length;
                 } else {
                     game.computerDeck.push(game.computerCard3);
-                    alert("Computer beat your third card and took it for itself")
+                    alert("Computer beat your third card and took it for itself");
+                    game.computerScore.innerHTML = game.computerDeck.length;
+                    game.playerScore.innerHTML = game.playerDeck.length;
                 }
             }
         }

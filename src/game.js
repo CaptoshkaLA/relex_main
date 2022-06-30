@@ -77,9 +77,9 @@ export class Game {
         this.actionDiv.innerHTML = "FLIP!";
         this.build();
         this.shuffle();
-        this.playerDeck = this.cards;
+        this.playerDeck = this.cards.slice(0);
         this.shuffle();
-        this.computerDeck = this.cards;
+        this.computerDeck = this.cards.slice(0);
     }
 
     tableInitialize() {
@@ -101,8 +101,8 @@ export class Game {
         this.computerCard1.src="images/" + this.computerHand[this.computerHand.length-1][0] + "_of_" + this.computerHand[this.computerHand.length-1][1] + ".png";
         this.computerCard2.src="images/" + this.computerHand[this.computerHand.length-2][0] + "_of_" + this.computerHand[this.computerHand.length-2][1] + ".png";
         this.computerCard3.src="images/" + this.computerHand[this.computerHand.length-3][0] + "_of_" + this.computerHand[this.computerHand.length-3][1] + ".png";
-        this.computerScore.innerHTML = this.computerDeck.length;
-        this.playerScore.innerHTML = this.playerDeck.length;
+        // this.computerScore.innerHTML = this.computerDeck.length;
+        // this.playerScore.innerHTML = this.playerDeck.length;
     }
 
     defeat() {
@@ -125,54 +125,8 @@ export class Game {
         this.turn = 0;
     }
 
-    // playGame(player, ai, game) {
-    //     console.log(" firstTurn1 "+game.firstTurn);
-    //     if(game.firstTurn === 0) {
-    //         this.actionDiv.addEventListener("click", () => {
-    //             game.firstTurn = 1;
-    //             this.turn = this.whoGoesFirst();
-    //             console.log("firstTurn=0 || 0-player,1-bot " + this.turn);
-    //             this.tableInitialize();
-    //             if (game.turn === 0) {
-    //                 let flag = 0;
-    //                 player.attack(game, flag);
-    //                 this.turn = 1;
-    //             } else {
-    //                 ai.attack(game);
-    //                 this.turn = 0;
-    //             }
-    //             //}, {once: true});
-    //         });
-    //     } else {
-    //         console.log("firstTurn=1 || 0-player,1-bot " +game.turn);
-    //         if(this.turn === 0) {
-    //             //game.actionDiv.addEventListener("click", function() {
-    //             this.actionDiv.addEventListener("click", () => {
-    //                 //game.turn = 1;
-    //                 this.setTurnOne();
-    //                 let flag = 0;
-    //                 alert("Player turn");
-    //                 this.tableInitialize();
-    //                 player.attack(game, flag);
-    //             }, {once: true});
-    //         } else if (this.turn === 1) {
-    //             // game.actionDiv.addEventListener("click", function() {
-    //             this.actionDiv.addEventListener("click", () => {
-    //                 //game.turn = 0;
-    //                 this.setTurnZero();
-    //                 alert("Computer turn");
-    //                 this.tableInitialize();
-    //                 ai.attack(game);
-    //             }, {once: true});
-    //         }
-    //         if (this.defeat()) {
-    //             this.turn = -1;
-    //         }
-    //     }
-    //     console.log(" firstTurn2 "+game.firstTurn);
-    // }
-
     playGame(player, ai, game) {
+        this.playerDeck = this.shuffle(this.playerDeck);
         console.log(" firstTurn1 "+game.firstTurn);
         this.actionDiv.addEventListener("click", () => {
             if (game.firstTurn === 0) {
@@ -181,10 +135,14 @@ export class Game {
                 console.log("firstTurn=0 || 0-player,1-bot " + this.turn);
                 this.tableInitialize();
                 if (game.turn === 0) {
+                    this.computerScore.innerHTML = this.computerDeck.length;
+                    this.playerScore.innerHTML = this.playerDeck.length-1;
                     let flag = 0;
                     player.attack(game, flag);
                     this.turn = 1;
                 } else {
+                    this.computerScore.innerHTML = this.computerDeck.length-1;
+                    this.playerScore.innerHTML = this.playerDeck.length;
                     ai.attack(game);
                     this.turn = 0;
                 }
@@ -195,11 +153,15 @@ export class Game {
                     let flag = 0;
                     alert("Player turn");
                     this.tableInitialize();
+                    this.computerScore.innerHTML = this.computerDeck.length;
+                    this.playerScore.innerHTML = this.playerDeck.length-1;
                     player.attack(game, flag);
                 } else if (this.turn === 1) {
                     this.setTurnZero();
                     alert("Computer turn");
                     this.tableInitialize();
+                    this.computerScore.innerHTML = this.computerDeck.length-1;
+                    this.playerScore.innerHTML = this.playerDeck.length;
                     ai.attack(game);
                 }
             }
@@ -207,7 +169,9 @@ export class Game {
                 this.turn = -1;
             }
             //}, {once: true});
-            });
+        });
         console.log(" firstTurn2 "+game.firstTurn);
-        }
+    }
+
+
 }

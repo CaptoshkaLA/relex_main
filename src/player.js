@@ -1,34 +1,6 @@
 //import {Game} from './src/game.js';
 export class Player {
 
-    // Player's move
-    /*attack(game) {
-        let attCard = game.playerDeck.shift();
-        game.attackCard.src="images/" + attCard[0] + "_of_" + attCard[1] + ".png";
-        let rang = attCard[0];
-        for (let i = 2; i >= 0; i--) {
-            if(game.computerHand[i][0] < rang) {
-                //console.log(game.computerHand[i][0], rang)
-                if(i===2) {
-                    game.computerCard1.addEventListener("click", function() {
-                        game.playerDeck.push(game.computerCard1);
-                        alert("First card is added to the deck");
-                    }, {once: true});
-                } else if(i===1) {
-                    game.computerCard2.addEventListener("click", function() {
-                        game.playerDeck.push(game.computerCard2);
-                        alert("Second card is added to the deck");
-                    }, {once: true});
-                } else {
-                    game.computerCard3.addEventListener("click", function() {
-                        game.playerDeck.push(game.computerCard3);
-                        alert("Third card is added to the deck");
-                    }, {once: true});
-                }
-            } // add
-        }
-    } */
-
 
     // Player's move
     attack(game, flag) {
@@ -49,6 +21,8 @@ export class Player {
                             flag = 1;
                             alert("Your card is added to the computer deck");
                         }
+                        game.computerScore.innerHTML = game.computerDeck.length;
+                        game.playerScore.innerHTML = game.playerDeck.length;
                     }
                 }, {once: true});
             } else if(i===1) {
@@ -63,6 +37,8 @@ export class Player {
                             flag = 1;
                             alert("Your card is added to the computer deck");
                         }
+                        game.computerScore.innerHTML = game.computerDeck.length;
+                        game.playerScore.innerHTML = game.playerDeck.length;
                     }
                 }, {once: true});
             } else if( i===0){
@@ -77,11 +53,16 @@ export class Player {
                             flag = 1;
                             alert("Your card is added to the computer deck");
                         }
+                        game.computerScore.innerHTML = game.computerDeck.length;
+                        game.playerScore.innerHTML = game.playerDeck.length;
                     }
                 }, {once: true});
             }
         }
-        if(count === 3) game.computerRedCards++;
+        if(count === 3) {
+            game.computerRedCards++;
+            alert("The opponent was given a penalty point")
+        }
         return game;
     }
 }

@@ -9,6 +9,8 @@ function main() {
     let ai = new AI;
     alert("game started");
     game.gameStart();
+    console.log(game.computerDeck);
+    console.log(game.playerDeck);
     game.playGame(player, ai, game);
 }
 

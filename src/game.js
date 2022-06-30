@@ -107,11 +107,16 @@ export class Game {
 
     defeat() {
         if(this.playerRedCards === 3) {
-            alert("You've lost");
+            alert("You've lost. Exceeded the number of penalty points received, equal to 3.");
             return 1;
-        }
-        if(this.computerRedCards === 3) {
-            alert("You beat the computer");
+        } else if(this.computerRedCards === 3) {
+            alert("You beat the computer. Exceeded the number of penalty points received, equal to 3.");
+            return 1;
+        } else if(this.computerDeck.length <= 0) {
+            alert("You beat the computer. The deck of cards is empty.");
+            return 1;
+        } else if(this.playerDeck.length <= 0) {
+            alert("You've lost. The deck of cards is empty.");
             return 1;
         }
         return 0;

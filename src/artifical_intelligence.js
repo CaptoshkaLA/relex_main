@@ -24,19 +24,19 @@ export class AI {
             while(possibleCards.length !== 0) {
                 let index = possibleCards.pop();
                 if(index === 2) {
-                    game.computerDeck.push(game.computerCard1);
+                    game.computerDeck.push(game.playerHand.splice(2,1));
                     alert("Computer beat your first card and took it for itself");
                     game.computerScore.innerHTML = game.computerDeck.length;
                     game.playerScore.innerHTML = game.playerDeck.length;
                     // game.playerHand.splice(2,1);
                 } else if(index === 1) {
-                    game.computerDeck.push(game.computerCard2);
+                    game.computerDeck.push(game.playerHand.splice(1,1));
                     alert("Computer beat your second card and took it for itself");
                     game.computerScore.innerHTML = game.computerDeck.length;
                     game.playerScore.innerHTML = game.playerDeck.length;
                     // game.playerHand.splice(1,1);
                 } else {
-                    game.computerDeck.push(game.computerCard3);
+                    game.computerDeck.push(game.playerHand.splice(0,1));
                     alert("Computer beat your third card and took it for itself");
                     game.computerScore.innerHTML = game.computerDeck.length;
                     game.playerScore.innerHTML = game.playerDeck.length;
